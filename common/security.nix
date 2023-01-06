@@ -1,11 +1,9 @@
 {pkgs, ...}: {
   security.pam.services.swaylock = {};
 
-
-
   programs.gnupg = {
     agent = {
-      enable= true;
+      enable = true;
       enableSSHSupport = true;
       enableExtraSocket = true;
       pinentryFlavor = "curses";

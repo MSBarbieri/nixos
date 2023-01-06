@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
 in
   (import ./common.nix {inherit pkgs;})
   ++ (import ./development.nix {inherit pkgs lib;})

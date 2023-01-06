@@ -28,8 +28,8 @@ in {
       EDITOR = "nvim";
       BROWSER = "brave";
       TERMINAL = "kitty";
-      LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib";
-      PYTHONPATH="$(pwd)/_build/pip_packages/lib/python3.7/site-packages:$PYTHONPATH";
+      LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib";
+      PYTHONPATH = "$(pwd)/_build/pip_packages/lib/python3.7/site-packages:$PYTHONPATH";
     };
   };
 
@@ -39,8 +39,8 @@ in {
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
+      color-scheme = "prefer-dark";
+    };
   };
 
   gtk = {
@@ -50,23 +50,23 @@ in {
       name = "Colloid-Dark";
       package = pkgs.colloid-gtk-theme;
     };
-    iconTheme =  {
+    iconTheme = {
       package = pkgs.colloid-icon-theme.overrideAttrs (old: {
         installPhase = ''
-      runHook preInstall
-          name= ./install.sh \
-            --scheme all \
-            --theme all \
-            --dest $out/share/icons
-          jdupes --quiet --link-soft --recurse $out/share
-          runHook postInstall
+          runHook preInstall
+              name= ./install.sh \
+                --scheme all \
+                --theme all \
+                --dest $out/share/icons
+              jdupes --quiet --link-soft --recurse $out/share
+              runHook postInstall
         '';
       });
       name = "Colloid-purple-dracula-dark";
     };
-    cursorTheme= {
-       package = pkgs.catppuccin-cursors.mochaDark;
-       name = "Catppuccin-Mocha-Dark";
+    cursorTheme = {
+      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "Catppuccin-Mocha-Dark";
     };
   };
 

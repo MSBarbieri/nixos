@@ -34,27 +34,27 @@ in {
     plugins = [pkgs.obs-studio-plugins.wlrobs];
   };
   go = {
-      enable = true;
+    enable = true;
   };
 
   ssh.enable = true;
   git = {
-      enable = true;
-      userName = "MSBarbieri";
-      userEmail = "matheussouzabarbieri@gmail.com";
-      extraConfig = {
-        init = {
-          defaultBranch = "main";
-        };
+    enable = true;
+    userName = "MSBarbieri";
+    userEmail = "matheussouzabarbieri@gmail.com";
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
       };
-      aliases = {
-        ci = "commit";
-        co = "chekcout";
-        s = "status";
-        wa = "worktree add";
-        wl = "worktree list";
-        bc = "clone --bare";
-      };
+    };
+    aliases = {
+      ci = "commit";
+      co = "chekcout";
+      s = "status";
+      wa = "worktree add";
+      wl = "worktree list";
+      bc = "clone --bare";
+    };
   };
 
   zsh = import ./zsh {inherit pkgs lib configHome;};

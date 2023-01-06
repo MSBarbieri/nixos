@@ -17,8 +17,8 @@
       xkbVariant = "dvp";
       xkbOptions = "caps:swapescape";
       displayManager = {
-          sddm.enable = true;
-          defaultSession = "none+awesome";
+        sddm.enable = true;
+        defaultSession = "none+awesome";
       };
       windowManager.awesome = {
         enable = true;

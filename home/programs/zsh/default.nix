@@ -22,7 +22,7 @@ in {
     v = "nvim";
     system = "nvim ${configHome}/nixos/flake.nix";
     home = "nvim ${configHome}/nixos/home/default.nix";
-    pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip";
+    pip = "PIP_PREFIX='$(pwd)/_build/pip_packages' \pip";
   };
 
   oh-my-zsh = {

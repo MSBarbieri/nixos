@@ -34,13 +34,5 @@
 
     tmux switch-client -t $selected_name
   '';
-
-  animated_background = pkgs.writeShellScriptBin "animated-background" ''
-    killall -q "xwinwrap"
-    exec xwinwrap -fs -ov -b -r -ni -s -nf -un -argb -- mpv --fullscreen --no-stop-screensaver --loop --no-audio --no-border --no-osc --no-osd-bar --no-input-default-bindings --video-aspect-override='21.3:9' "$1" > /tmp/animated-background 2>&1
-  '';
-
-  spt_update = pkgs.writeShellScriptBin "spt_update" ''
-    echo "$1 - $2 - $3 - $4" > /tmp/spt_update
-  '';
-in [tmux_sessionizer animated_background spt_update]
+in
+  [tmux_sessionizer] ++ (import ./bootstrap.nix {inherit pkgs;})
