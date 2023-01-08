@@ -6,7 +6,9 @@
   ...
 }: let
   inherit configHome;
+  zsh = import ./zsh {inherit config pkgs lib configHome;};
 in {
+  inherit (zsh) zsh starship;
   home-manager.enable = true;
   direnv.enable = true;
   bat.enable = true;
@@ -57,6 +59,6 @@ in {
     };
   };
 
-  zsh = import ./zsh {inherit pkgs lib configHome;};
+
   tmux = import ./tmux {inherit config pkgs;};
 }
