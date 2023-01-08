@@ -10,7 +10,7 @@
   configHome = "${homeDirectory}/.config";
 in {
   programs = import ./programs {inherit config pkgs lib configHome;};
-  services = import ./services {inherit pkgs;};
+  services = import ./services {inherit pkgs homeDirectory;};
 
   xdg = {
     inherit configHome;
