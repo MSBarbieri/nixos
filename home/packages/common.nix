@@ -9,4 +9,5 @@ in
     brave
 
     pass
+    qbittorrent
   ]
