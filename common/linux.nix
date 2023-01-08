@@ -5,6 +5,7 @@
   console.keyMap = "dvorak";
 
   programs.dconf.enable = true;
+  programs.adb.enable = true;
 
   services.dbus = {
     enable = true;
