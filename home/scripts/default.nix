@@ -34,5 +34,10 @@
 
     tmux switch-client -t $selected_name
   '';
+
+  create_post = pkgs.writeShellScriptBin "create-post" ''
+    cd ~/dev/repos/MSBarbieri/msbarbieri.github.io
+    hugo new "posts/$1.md"
+  '';
 in
-  [tmux_sessionizer] ++ (import ./bootstrap.nix {inherit pkgs;})
+  [tmux_sessionizer create_post] ++ (import ./bootstrap.nix {inherit pkgs;})
