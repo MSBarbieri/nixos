@@ -33,6 +33,7 @@ with inputs; let
       lib,
       ...
     }: {
+      nixpkgs.overlays = [ fenix.overlays.default ];
       environment.systemPackages =
         (import ../packages/langs.nix {inherit pkgs;})
         ++ (import ../packages/common.nix {inherit pkgs;})

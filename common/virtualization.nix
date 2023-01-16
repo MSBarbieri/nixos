@@ -2,6 +2,10 @@
   virtualisation = {
     docker = {
       enable = true;
+      rootless = {
+        enable = false;
+        setSocketVariable = true;
+      };
       autoPrune = {
         enable = true;
         dates = "weekly";

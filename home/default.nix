@@ -21,7 +21,7 @@ in {
     inherit username homeDirectory;
     stateVersion = "22.11";
     packages =
-      (import ./packages {inherit pkgs lib;})
+      (import ./packages {inherit pkgs lib stdenv;})
       ++ (import ./scripts {inherit pkgs;});
 
     sessionVariables = {

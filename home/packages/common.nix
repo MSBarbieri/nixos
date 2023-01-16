@@ -7,6 +7,7 @@ in
     ripgrep
     picom
     brave
+    google-chrome
 
     pass
     qbittorrent
