@@ -28,4 +28,5 @@ in
     kitty
     neovim
     fd
+    dnsutils
   ]

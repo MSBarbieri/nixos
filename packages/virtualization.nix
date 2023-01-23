@@ -7,5 +7,5 @@ with pkgs; [
   kustomize
   istioctl
   kind
-  helm
+  kubernetes-helm
 ]
