@@ -18,13 +18,6 @@
   python_pkgs = with pkgs; [
     python3
     pkgs.python3Packages.pynvim
-    pkgs.python3Packages.pytest
-    pkgs.python3Packages.pyflakes
-    pkgs.python3Packages.black
-    pkgs.python3Packages.setuptools
-    pkgs.python3Packages.pip
-    pkgs.python3Packages.pygobject3
-    pkgs.python3Packages.gst-python
     poetry
   ];
 
