@@ -22,14 +22,14 @@
   ];
 
   rust_pkgs = with pkgs; [
-      (fenix.complete.withComponents [
-        "cargo"
-        "clippy"
-        "rust-src"
-        "rustc"
-        "rustfmt"
-      ])
-      rust-analyzer-nightly
+    (fenix.complete.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
+    rust-analyzer-nightly
   ];
 
   cf_tool = stdenv.mkDerivation rec {
@@ -46,20 +46,19 @@
     dontBuild = true;
 
     installPhase = ''
-       mkdir -p $out/bin
-       cp -r cf $out/bin
+      mkdir -p $out/bin
+      cp -r cf $out/bin
     '';
 
     meta = with lib; {
       homepage = "https://github.com/xalanq/cf-tool";
       description = "CodeForces CLI";
-      sourceProvenance = with sourceTypes; [ binaryBytecode ];
+      sourceProvenance = with sourceTypes; [binaryBytecode];
       license = with licenses; [];
       platforms = platforms.all;
       maintainers = with maintainers; [];
     };
   };
-
 
   leetcode = pkgs.rustPlatform.buildRustPackage rec {
     pname = "leetcode";
@@ -77,17 +76,19 @@
       pkg-config
     ];
 
-    buildInputs = with pkgs; [
-      openssl
-      dbus
-      sqlite
-    ] ++ lib.optionals stdenv.isDarwin [ darwin.apple_sdk.frameworks.Security ];
+    buildInputs = with pkgs;
+      [
+        openssl
+        dbus
+        sqlite
+      ]
+      ++ lib.optionals stdenv.isDarwin [darwin.apple_sdk.frameworks.Security];
 
     meta = with pkgs.lib; {
       description = "Leet your code in command-line.";
       homepage = "https://github.com/clearloop/leetcode-cli";
       licenses = licenses.mit;
-      maintainers = with maintainers; [ congee ];
+      maintainers = with maintainers; [congee];
       mainProgram = "leetcode";
     };
   };

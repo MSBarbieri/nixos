@@ -59,6 +59,5 @@ in {
     };
   };
 
-
   tmux = import ./tmux {inherit config pkgs;};
 }

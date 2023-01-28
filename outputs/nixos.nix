@@ -1,5 +1,13 @@
-{inputs, ...}:
+{
+  inputs,
+  user,
+  session,
+  desktop,
+  ...
+}:
 with inputs; let
+
+  nixpkgs.overlays = [fenix.overlays.default];
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
@@ -9,38 +17,8 @@ with inputs; let
     home-manager.nixosModules.home-manager
     ../common/fonts.nix
     ../common/nix_conf.nix
-    ({
-      config,
-      lib,
-      lib',
-      ...
-    }: {
-      config = {
-        _module.args = {
-          lib' = lib // import ../lib {inherit config lib;};
-        };
-
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.matheus-barbieri.imports = [../home/default.nix];
-        };
-      };
-    })
-    ({
-      config,
-      pkgs,
-      lib,
-      ...
-    }: {
-      nixpkgs.overlays = [ fenix.overlays.default ];
-      environment.systemPackages =
-        (import ../packages/langs.nix {inherit pkgs;})
-        ++ (import ../packages/common.nix {inherit pkgs;})
-        ++ (import ../packages/nix.nix {inherit pkgs;})
-        ++ (import ../packages/desktop.nix {inherit pkgs;})
-        ++ (import ../packages/virtualization.nix {inherit pkgs;});
-    })
+    ../common/home_manager.nix
+    ../common/packages.nix
   ];
 
   desktopLinuxModules = [
@@ -57,14 +35,18 @@ with inputs; let
 
   nixosSystem = inputs.nixpkgs.lib.nixosSystem;
 in {
-  home-desktop = nixosSystem {
+  home-desktop = let
+    machine = "home-desktop";
     system = "x86_64-linux";
-    modules =
-      [
-        ../machines/home-desktop
-      ]
-      ++ defaultModules
-      ++ desktopLinuxModules;
-    specialArgs = {inherit inputs;};
-  };
+  in
+    nixosSystem {
+      inherit system;
+      modules =
+        [
+          ../machines/home-desktop
+        ]
+        ++ defaultModules
+        ++ desktopLinuxModules;
+      specialArgs = {inherit inputs;};
+    };
 }

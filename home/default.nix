@@ -29,7 +29,6 @@ in {
       BROWSER = "brave";
       TERMINAL = "kitty";
       LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib";
-      PYTHONPATH = "$(pwd)/_build/pip_packages/lib/python3.7/site-packages:$PYTHONPATH";
     };
   };
 

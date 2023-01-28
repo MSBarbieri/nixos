@@ -8,6 +8,7 @@
   ];
 
   boot = {
+    supportedFilesystems = ["ntfs" "btrfs"];
     loader = {
       systemd-boot.enable = true;
       efi = {
@@ -19,6 +20,14 @@
 
   networking = {
     hostName = "home-desktop";
+    extraHosts = ''
+      127.0.0.1 instagram.com
+      127.0.0.1 tiktok.com
+      # 127.0.0.1 youtube.com
+      # 127.0.0.1 www.youtube.com
+      # 127.0.0.1 twitch.tv
+      # 127.0.0.1 www.twitch.tv
+    '';
   };
 
   services.xserver.videoDrivers = ["nvidia"];
