@@ -19,12 +19,14 @@
       xkbVariant = "dvp";
       xkbOptions = "caps:swapescape";
       displayManager = {
-        sddm.enable = true;
         defaultSession = "none+awesome";
-        # autologin = {
-        #   enable = desktop.autologin;
-        #   username = user.username;
-        # };
+        sddm = {
+          enable = true;
+          autoLogin = {
+            enable = desktop.autologin;
+            user = user.username;
+          };
+        };
       };
       windowManager.awesome = {
         enable = true;
