@@ -14,30 +14,18 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: let
-    user = {
-      username = "matheus-barbieri";
-      email = "matheussouzabarbieri@gmail.com";
-      github = "MSBarbieri";
-    };
-
-    session = {
-      editor = "nvim";
-      browser = "brave";
-      terminal = "kitty";
-      auto-loggin = true;
-    };
-
-    desktop = {
-      home = "/home/matheus-barbieri/";
-      server = "xorg";
-    };
   in {
     nixosConfigurations = (
       import ./outputs/nixos.nix {
-        inherit inputs user session desktop;
+        inherit inputs;
       }
     );
   };

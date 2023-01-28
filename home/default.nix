@@ -3,6 +3,9 @@
   lib,
   pkgs,
   stdenv,
+  user,
+  desktop,
+  session,
   ...
 }: let
   username = "matheus-barbieri";
@@ -18,7 +21,8 @@ in {
   };
 
   home = {
-    inherit username homeDirectory;
+    username = user.username;
+    homeDirectory = user.home;
     stateVersion = "22.11";
     packages =
       (import ./packages {inherit pkgs lib stdenv;})

@@ -1,6 +1,8 @@
 {
   config,
   pkgs,
+  user,
+  desktop,
   ...
 }: {
   services = rec {
@@ -19,6 +21,10 @@
       displayManager = {
         sddm.enable = true;
         defaultSession = "none+awesome";
+        # autologin = {
+        #   enable = desktop.autologin;
+        #   username = user.username;
+        # };
       };
       windowManager.awesome = {
         enable = true;

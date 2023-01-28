@@ -1,18 +1,5 @@
-{
-  inputs,
-  user,
-  session,
-  desktop,
-  ...
-}:
+{inputs, ...}:
 with inputs; let
-
-  nixpkgs.overlays = [fenix.overlays.default];
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
-
   defaultModules = [
     home-manager.nixosModules.home-manager
     ../common/fonts.nix
@@ -34,10 +21,35 @@ with inputs; let
   ];
 
   nixosSystem = inputs.nixpkgs.lib.nixosSystem;
+
+  user = {
+    username = "matheus-barbieri";
+    email = "matheussouzabarbieri@gmail.com";
+    github = "MSBarbieri";
+    home = "/home/matheus-barbieri";
+  };
+
+  session = {
+    editor = "nvim";
+    browser = "brave";
+    terminal = "kitty";
+  };
+
+  desktop = {
+    server = "xorg";
+    autologin = true;
+  };
 in {
   home-desktop = let
     machine = "home-desktop";
     system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [
+        fenix.overlays.default
+      ];
+    };
   in
     nixosSystem {
       inherit system;
@@ -47,6 +59,6 @@ in {
         ]
         ++ defaultModules
         ++ desktopLinuxModules;
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs machine system pkgs user desktop session;};
     };
 }
