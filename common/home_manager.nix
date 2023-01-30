@@ -5,6 +5,7 @@
   user,
   desktop,
   session,
+  machine,
   ...
 }: {
   config = {
@@ -16,7 +17,7 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       users.matheus-barbieri.imports = [../home/default.nix];
-      extraSpecialArgs = {inherit user desktop session;};
+      extraSpecialArgs = {inherit user desktop session machine;};
     };
   };
 }

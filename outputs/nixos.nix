@@ -27,6 +27,7 @@ with inputs; let
     email = "matheussouzabarbieri@gmail.com";
     github = "MSBarbieri";
     home = "/home/matheus-barbieri";
+    configPath = "${user.home}/.config";
   };
 
   session = {

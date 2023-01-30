@@ -6,17 +6,15 @@
   user,
   desktop,
   session,
+  machine,
   ...
 }: let
-  username = "matheus-barbieri";
-  homeDirectory = "/home/${username}";
-  configHome = "${homeDirectory}/.config";
 in {
-  programs = import ./programs {inherit config pkgs lib configHome;};
-  services = import ./services {inherit pkgs homeDirectory;};
+  programs = import ./programs {inherit config pkgs lib user machine;};
+  services = import ./services {inherit pkgs user;};
 
   xdg = {
-    inherit configHome;
+    configHome = user.configPath;
     enable = true;
   };
 
@@ -29,9 +27,9 @@ in {
       ++ (import ./scripts {inherit pkgs;});
 
     sessionVariables = {
-      EDITOR = "nvim";
-      BROWSER = "brave";
-      TERMINAL = "kitty";
+      EDITOR = session.editor;
+      BROWSER = session.browser;
+      TERMINAL = session.terminal;
       LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib";
     };
   };

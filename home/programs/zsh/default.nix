@@ -1,10 +1,9 @@
 {
   pkgs,
-  configHome,
+  user,
+  machine,
   ...
-}: let
-  inherit configHome;
-in {
+}: {
   zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -20,7 +19,7 @@ in {
       lg = "lazygit";
       g = "git";
       k = "kubectl";
-      update = "sudo nixos-rebuild switch --flake '${configHome}/nixos#home-desktop'";
+      update = "sudo nixos-rebuild switch --flake '${user.configPath}/nixos#${machine}'";
       v = "nvim";
     };
 

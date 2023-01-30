@@ -2,11 +2,11 @@
   config,
   pkgs,
   lib,
-  configHome,
+  user,
+  machine,
   ...
 }: let
-  inherit configHome;
-  zsh = import ./zsh {inherit config pkgs lib configHome;};
+  zsh = import ./zsh {inherit config pkgs lib user machine;};
 in {
   inherit (zsh) zsh starship;
   home-manager.enable = true;

@@ -1,13 +1,13 @@
 {
   pkgs,
-  homeDirectory,
+  user,
   ...
 }: {
   flameshot.enable = true;
   mpd = {
     enable = true;
-    musicDirectory = "${homeDirectory}/Music/";
-    playlistDirectory = homeDirectory + "/Music/";
+    musicDirectory = "${user.home}/Music/";
+    playlistDirectory = user.home + "/Music/";
     network = {
       listenAddress = "any";
     };
