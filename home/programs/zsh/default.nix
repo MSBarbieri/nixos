@@ -21,6 +21,7 @@
       k = "kubectl";
       update = "sudo nixos-rebuild switch --flake '${user.configPath}/nixos#${machine}'";
       v = "nvim";
+      c = "cz commit";
     };
 
     oh-my-zsh = {
