@@ -6,21 +6,6 @@
 }: let
   inherit (pkgs) stdenv;
 
-  node_pkgs = with pkgs; [
-    nodejs-14_x
-    yarn
-    yarn2nix
-    tree-sitter
-    pkgs.nodePackages.neovim
-    pkgs.nodePackages.ts-node
-  ];
-
-  python_pkgs = with pkgs; [
-    python3
-    pkgs.python3Packages.pynvim
-    poetry
-  ];
-
   rust_pkgs = with pkgs; [
     (fenix.complete.withComponents [
       "cargo"
@@ -32,7 +17,19 @@
     rust-analyzer-nightly
   ];
 
-  cf_tool = stdenv.mkDerivation rec {
+  node_pkgs = with pkgs; [
+    nodejs-14_x
+    tree-sitter
+    pkgs.nodePackages.neovim
+    pkgs.nodePackages.ts-node
+  ];
+
+  python_pkgs = with pkgs; [
+    python3
+    pkgs.python3Packages.pynvim
+  ];
+
+  cf_tool = stdenv.mkDerivation {
     pname = "cf";
     version = "1.0.0";
 
@@ -54,9 +51,9 @@
       homepage = "https://github.com/xalanq/cf-tool";
       description = "CodeForces CLI";
       sourceProvenance = with sourceTypes; [binaryBytecode];
-      license = with licenses; [];
+      license =  [];
       platforms = platforms.all;
-      maintainers = with maintainers; [];
+      maintainers =  [];
     };
   };
 in
@@ -67,6 +64,7 @@ in
       hugo
       cf_tool
       dbeaver
+      commitizen
     ]
     ++ node_pkgs
     ++ python_pkgs
