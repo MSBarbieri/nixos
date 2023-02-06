@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs,lib, ...}: let
   inherit (pkgs) stdenv;
 in
   with pkgs; [
@@ -7,7 +7,7 @@ in
     ripgrep
     picom
     brave
-    google-chrome
+    google-chrome-dev
 
     pass
     qbittorrent

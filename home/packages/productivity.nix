@@ -5,4 +5,5 @@ in
     obsidian
     taskwarrior
     taskwarrior-tui
+    translate-shell
   ]
