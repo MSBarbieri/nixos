@@ -7,6 +7,17 @@
       sha256 = "sha256-UloBlV26HnkvbzP/NynlPI77z09MBEVgtrg5SeTmwB4=";
     };
   });
+
+  nvim = pkgs.neovim-unwrapped.overrideAttrs (old: {
+    version = "v0.9.0-dev-878+g6c39edaa7";
+    src = pkgs.fetchFromGitHub {
+      owner = "neovim";
+      repo = "neovim";
+      rev = "nightly";
+      sha256 = "sha256-UkEa4LKXLNglbn5U2o/zee9AePaVVzLkhe06rv6jtDg=";
+    };
+  });
+
 in
   with pkgs; [
     curl
@@ -26,7 +37,7 @@ in
     ffmpeg
     firefox
     kitty
-    neovim
+    nvim
     fd
     dnsutils
   ]
