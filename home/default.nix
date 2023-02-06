@@ -8,8 +8,7 @@
   session,
   machine,
   ...
-}: let
-in {
+}: {
   programs = import ./programs {inherit config pkgs lib user machine;};
   services = import ./services {inherit pkgs user;};
 
