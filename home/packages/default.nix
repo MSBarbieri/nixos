@@ -3,9 +3,7 @@
   lib,
   stdenv,
   ...
-}: let
-in
-  (import ./common.nix {inherit pkgs;})
+}: (import ./common.nix {inherit pkgs;})
   ++ (import ./development.nix {inherit pkgs lib stdenv;})
   ++ (import ./graphics.nix {inherit pkgs;})
   ++ (import ./media.nix {inherit pkgs;})
