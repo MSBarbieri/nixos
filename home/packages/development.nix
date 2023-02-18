@@ -29,7 +29,7 @@
     pkgs.python3Packages.pynvim
   ];
 
-  cf_tool = stdenv.mkDerivation {
+  cf-tool = stdenv.mkDerivation {
     pname = "cf";
     version = "1.0.0";
 
@@ -62,9 +62,11 @@ in
       gh
       lazygit
       hugo
-      cf_tool
-      dbeaver
+      cf-tool
       commitizen
+      renderdoc
+      gnumake
+      dbeaver
     ]
     ++ node_pkgs
     ++ python_pkgs

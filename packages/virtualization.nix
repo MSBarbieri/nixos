@@ -8,4 +8,5 @@ with pkgs; [
   istioctl
   kind
   kubernetes-helm
+  docker-compose
 ]

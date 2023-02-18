@@ -1,9 +1,7 @@
-{pkgs, ...}: let
-  inherit (pkgs) stdenv;
-in
-  with pkgs; [
+{pkgs, ...}: with pkgs; [
     obsidian
     taskwarrior
     taskwarrior-tui
     translate-shell
+    fluent-reader
   ]

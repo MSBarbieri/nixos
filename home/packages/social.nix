@@ -1,5 +1,4 @@
 {pkgs, ...}: let
-  inherit (pkgs) stdenv;
   pidgin = pkgs.pidgin.override {
     ## Add whatever plugins are desired (see nixos.org package listing).
     plugins = [

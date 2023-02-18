@@ -5,7 +5,7 @@
   desktop,
   ...
 }: {
-  services = rec {
+  services = {
     xserver = {
       enable = true;
 

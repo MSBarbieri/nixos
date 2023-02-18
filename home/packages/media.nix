@@ -1,7 +1,4 @@
-{pkgs, ...}: let
-  inherit (pkgs) stdenv;
-in
-  with pkgs; [
+{pkgs, ...}: with pkgs; [
     vlc
     pulsemixer
     playerctl
