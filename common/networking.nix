@@ -8,7 +8,10 @@
       enable = true;
       plugins = [pkgs.networkmanager-openvpn];
     };
-    firewall.enable = false;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [6443];
+    };
   };
 
   services = {

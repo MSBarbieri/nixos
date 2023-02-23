@@ -23,17 +23,16 @@
     role = "server";
     package = pkgs.k3s;
     extraFlags = builtins.toString [
-      # "--disable" "coredns"
+      "--disable" "coredns"
       "--disable" "local-storage"
       "--disable" "metrics-server"
       "--disable" "servicelb"
       "--disable" "traefik"
-      "--pause-image" "test.local/pause:local"
     ];
   };
 
   services.freshrss = {
-    enable = true;
+    enable = false;
     baseUrl = "localhost";
     passwordFile = pkgs.writeText "password" "secret";
     # dataDir = "/srv/freshrss";

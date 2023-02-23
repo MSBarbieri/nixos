@@ -29,7 +29,8 @@
       EDITOR = session.editor;
       BROWSER = session.browser;
       TERMINAL = session.terminal;
-      LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib";
+      # LD_PRELOAD="${pkgs.stdenv.cc.cc.lib}/lib/libstdc++.so.6";
+      # LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH";
     };
   };
 

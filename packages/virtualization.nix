@@ -9,4 +9,5 @@ with pkgs; [
   kind
   kubernetes-helm
   docker-compose
+  k3s
 ]

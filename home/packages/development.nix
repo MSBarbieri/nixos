@@ -18,7 +18,7 @@
   ];
 
   node_pkgs = with pkgs; [
-    nodejs-14_x
+    nodejs-16_x
     tree-sitter
     pkgs.nodePackages.neovim
     pkgs.nodePackages.ts-node
@@ -27,6 +27,7 @@
   python_pkgs = with pkgs; [
     python3
     pkgs.python3Packages.pynvim
+    poetry
   ];
 
   cf-tool = stdenv.mkDerivation {
@@ -67,6 +68,10 @@ in
       renderdoc
       gnumake
       dbeaver
+      glibc
+      mkdocs
+      postman
+      tldr
     ]
     ++ node_pkgs
     ++ python_pkgs
