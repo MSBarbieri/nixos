@@ -17,7 +17,6 @@
       sha256 = "sha256-MgUEDPza573qKV59nRqrykLblPKBZu+DAIUqg9Pl5wU=";
     };
   });
-
 in
   with pkgs; [
     curl
@@ -40,4 +39,5 @@ in
     nvim
     fd
     dnsutils
+    wineWowPackages.stable
   ]
