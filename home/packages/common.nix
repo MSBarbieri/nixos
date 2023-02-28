@@ -8,4 +8,5 @@
 
   pass
   qbittorrent
+  unrar
 ]
