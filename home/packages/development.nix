@@ -72,6 +72,7 @@ in
       mkdocs
       postman
       tldr
+      wine
     ]
     ++ node_pkgs
     ++ python_pkgs
