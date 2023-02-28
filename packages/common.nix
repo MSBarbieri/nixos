@@ -9,12 +9,12 @@
   });
 
   nvim = pkgs.neovim-unwrapped.overrideAttrs (old: {
-    version = "v0.9.0-dev-878+g6c39edaa7";
+    version = "v0.9.0-dev-1059+g2c9fbe34b";
     src = pkgs.fetchFromGitHub {
       owner = "neovim";
       repo = "neovim";
       rev = "nightly";
-      sha256 = "sha256-UkEa4LKXLNglbn5U2o/zee9AePaVVzLkhe06rv6jtDg=";
+      sha256 = "sha256-MgUEDPza573qKV59nRqrykLblPKBZu+DAIUqg9Pl5wU=";
     };
   });
 
