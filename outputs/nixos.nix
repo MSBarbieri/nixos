@@ -1,6 +1,5 @@
 {inputs, ...}:
 with inputs; let
-
   defaultModules = [
     home-manager.nixosModules.home-manager
     ../common/fonts.nix

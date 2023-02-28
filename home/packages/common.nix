@@ -1,4 +1,5 @@
-{pkgs, ...}: with pkgs; [
+{pkgs, ...}:
+with pkgs; [
   zathura
   exa
   ripgrep

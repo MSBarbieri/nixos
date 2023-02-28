@@ -52,9 +52,9 @@
       homepage = "https://github.com/xalanq/cf-tool";
       description = "CodeForces CLI";
       sourceProvenance = with sourceTypes; [binaryBytecode];
-      license =  [];
+      license = [];
       platforms = platforms.all;
-      maintainers =  [];
+      maintainers = [];
     };
   };
 in
@@ -72,7 +72,6 @@ in
       mkdocs
       postman
       tldr
-      wine
     ]
     ++ node_pkgs
     ++ python_pkgs

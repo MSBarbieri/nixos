@@ -23,11 +23,16 @@
     role = "server";
     package = pkgs.k3s;
     extraFlags = builtins.toString [
-      "--disable" "coredns"
-      "--disable" "local-storage"
-      "--disable" "metrics-server"
-      "--disable" "servicelb"
-      "--disable" "traefik"
+      "--disable"
+      "coredns"
+      "--disable"
+      "local-storage"
+      "--disable"
+      "metrics-server"
+      "--disable"
+      "servicelb"
+      "--disable"
+      "traefik"
     ];
   };
 

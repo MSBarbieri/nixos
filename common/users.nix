@@ -12,9 +12,18 @@
   users.users.matheus-barbieri = {
     isNormalUser = true;
     description = "matheus barbieri";
-    extraGroups = ["networkmanager" "wheel" "docker" "libvirtd" "video" "audio"
-    "adbusers" "k3s" "couchdb"];
-    packages =  [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "libvirtd"
+      "video"
+      "audio"
+      "adbusers"
+      "k3s"
+      "couchdb"
+    ];
+    packages = [];
     shell = pkgs.zsh;
   };
 }
