@@ -25,4 +25,24 @@
       }
     '';
   };
+
+  redshift = {
+    enable = true;
+    provider = "manual";
+    settings = {
+      redshift = {
+        brightness-day = "1";
+        brightness-night = "1";
+        transition=1;
+        gamma="1.000:1.000:1.000";
+        temp-day = 5500;
+        temp-night = 3700;
+        location-provider="manual";
+      };
+      manual = {
+        lat = -23.456842;
+        lon = -46.648923;
+      };
+    };
+  };
 }
